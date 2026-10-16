@@ -19,14 +19,13 @@ public class Card implements Comparable<Card>
   protected final Suit suit;
   protected ImageIcon image;
     
-  Card(Rank rank, Suit suit, ImageIcon image) 
+  Card(Rank rank, Suit suit) 
   {
-    this.rank = rank; this.suit = suit; this.image = image;
+    this.rank = rank; this.suit = suit;
   }
 
   public Rank getRank() { return rank; }
   public Suit getSuit() { return suit; }
-  public ImageIcon getImage() {return image;}
 
   @Override 
   public boolean equals(Object obj)
