@@ -76,7 +76,7 @@ public class CardHandGUI
         southPanel.setBackground (Color.white);
         southPanel.setLayout(new FlowLayout());
 
-        cardLabels[0] = new JLabel(hand[0].getImage());
+        cardLabels[0] = new JLabel(hand[0]);
         for (int i = 1; i < HANDSIZE; i++)
             cardLabels[i] = new JLabel("");
 

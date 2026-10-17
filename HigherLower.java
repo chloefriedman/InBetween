@@ -73,7 +73,8 @@ public class HigherLower
                 if(bet*2 <= bank)
                 {
                     boolean a = false;
-                    while(!a)
+                    worked = false;
+                    while(!worked)
                     {
                         try
                         {
@@ -84,10 +85,15 @@ public class HigherLower
                         catch (InputMismatchException e)
                         {
                             System.out.println("That is not true or false, try again");
-                            a = false;
+                            worked = false;
                             sc.next();
                         }
                     }
+                    if(a)
+                    {
+                        bet = bet*2;
+                    }
+
                 }
                     String choice = "";
                     boolean b = false;
@@ -113,6 +119,21 @@ public class HigherLower
                             sc.next();
                         }
                     }
+                    System.out.println();
+                    System.out.println("Card 3 is: ");
+                    if(c.hasNextCard() == false)
+                    {
+                        c = new CardDeck();
+                    }
+                    Card c3 = c.nextCard();
+                    System.out.println(c3);
+                    if(choice.equalsIgnoreCase("inside") && ((c3.compareTo(c1) > 0 && c3.compareTo(c2) < 0) || (c3.compareTo(c2) > 0 && c3.compareTo(c1) < 0)))
+                    {
+                        bank = bank + bet;
+                        System.out.println("Good job! You guessed inside and card 3 was inside. Your bank is now " + bank);
+                    }
+                    
+                    
 
             }
     
