@@ -45,7 +45,6 @@ public class HigherLower
                 System.out.println("How much do you want to bet? ");
                 bet = sc.nextDouble();
             }
-            bank = bank - bet;
             CardDeck c = new CardDeck();
             c.shuffle();
             System.out.println("Card 1: ");
@@ -66,15 +65,60 @@ public class HigherLower
             if(c2.compareTo(c1) == 0)
             {
                 System.out.println("You win!");
-                bank = bank + (2* bet);
+                bank = bank + bet;
                 System.out.println("Current bank: " + bank);
             }
+            else
+            {
+                if(bet*2 <= bank)
+                {
+                    boolean a = false;
+                    while(!a)
+                    {
+                        try
+                        {
+                            System.out.println("Do you want to double your bet? Respond with true or false");
+                            a = sc.nextBoolean();
+                            worked = true;
+                        }
+                        catch (InputMismatchException e)
+                        {
+                            System.out.println("That is not true or false, try again");
+                            a = false;
+                            sc.next();
+                        }
+                    }
+                }
+                    String choice = "";
+                    boolean b = false;
+                    while(!b)
+                    {
+                        try
+                        {
+                            System.out.println("Inside or outside? ");
+                            choice = sc.nextLine();
+                            if(choice.equalsIgnoreCase("inside") || choice.equalsIgnoreCase("outside"))
+                            {
+                                b = true;
+                            }
+                            else
+                            {
+                                System.out.println("That wasn't inside or outside. Try again.");
+                            }
+                        }
+                        catch (InputMismatchException e)
+                        {
+                            System.out.println("That is not a valid input. Try again");
+                            b = false;
+                            sc.next();
+                        }
+                    }
 
-        }
+            }
     
  
  
 
  
     }
-}
+}}

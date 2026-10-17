@@ -44,7 +44,6 @@ public class CardHandGUI
         northPanel.setLayout(new FlowLayout());
 
         nextCardLabel = new JLabel("Next Card:");
-        nextCardHolder = new JLabel(nextCard.getImage());
 
         JPanel slotPanel = new JPanel();
         slotPanel.setLayout(new FlowLayout());
