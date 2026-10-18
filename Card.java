@@ -53,6 +53,6 @@ public class Card implements Comparable<Card>
   }
 
   @Override
-  public String toString() { return suit + " " + rank; }
+  public String toString() { return rank + " of " + suit; }
 }
  
