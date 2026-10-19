@@ -57,6 +57,7 @@ public class HigherLower
             
         while(wantToPlay)
         {
+            int cardsDealt = 0;
             worked = false;
             double bet = 0;
             while(!worked)
@@ -85,19 +86,23 @@ public class HigherLower
             CardDeck c = new CardDeck();
             c.shuffle();
             System.out.println("Card 1: ");
-            if(c.hasNextCard() == false)
+            if(cardsDealt == 10)
             {
                 c = new CardDeck();
                 c.shuffle();
+                cardsDealt = 0;
             }
             Card c1 = c.nextCard();
+            cardsDealt++;
             System.out.println(c1);
-            if(c.hasNextCard() == false)
+            if(cardsDealt == 10)
             {
                 c = new CardDeck();
                 c.shuffle();
+                cardsDealt = 0;
             }
             Card c2 = c.nextCard();
+            cardsDealt++;
             System.out.println("Card 2: ");
             System.out.println(c2);
             System.out.println();
