@@ -55,7 +55,7 @@ public class HigherLower
             }
         }
             
-        while(wantToPlay)
+        while(wantToPlay && bank != 0)
         {
             int cardsDealt = 0;
             worked = false;
@@ -114,7 +114,7 @@ public class HigherLower
             }
             else if(c2.compareTo(c1) == -1 || c2.compareTo(c1) == 1)
             {
-                System.out.println("You hit the post! You lose!");
+                System.out.println("Your cards are one off! You lose!");
                 bank = bank - bet;
                 System.out.println("Current bank: " + bank);
             }
@@ -196,14 +196,15 @@ public class HigherLower
                             System.out.println("Sorry! You guessed inside and card 3 was outside. Your bank is now " + bank);
                         }
                     }
-                    else
+                    else if(choice.equalsIgnoreCase("outside"))
                     {
                         if ((c3.compareTo(c1) > 0 && c3.compareTo(c2) < 0) || (c3.compareTo(c2) > 0 && c3.compareTo(c1) < 0))
                         {
-                            System.out.println("Sorry! You guessed inside and card 3 was outside. Your bank is now " + bank);
+                            System.out.println("Sorry! You guessed outside and card 3 was inside. Your bank is now " + bank);
                             bank = bank - bet;
                         }
                         
+                       else 
                         {
                             bank = bank + bet;
                             System.out.println("Good job! You guessed outside and card 3 was outside. Your bank is now " + bank);
@@ -212,6 +213,7 @@ public class HigherLower
                     if(bank == 0)
                     {
                         System.out.println("You are out of money! The game is over. Goodbye!");
+                        wantToPlay = false;
                     }
                     else
                     {
