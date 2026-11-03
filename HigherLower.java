@@ -55,7 +55,7 @@ public class HigherLower
             }
         }
             
-        while(wantToPlay && bank != 0)
+        while(wantToPlay && bank >= 0)
         {
             int cardsDealt = 0;
             worked = false;
@@ -76,9 +76,9 @@ public class HigherLower
                 }
             }
 
-            while(bank < bet)
+            while(bank < bet || bet <= 0)
             {
-                System.out.println("You cannot bet more than you have");
+                System.out.println("You cannot bet more than you have or a negative number");
                 System.out.println("How much do you want to bet? ");
                 bet = sc.nextDouble();
             }
@@ -86,7 +86,7 @@ public class HigherLower
             CardDeck c = new CardDeck();
             c.shuffle();
             System.out.println("Card 1: ");
-            if(cardsDealt == 10)
+            if(cardsDealt == 42)
             {
                 c = new CardDeck();
                 c.shuffle();
@@ -177,6 +177,7 @@ public class HigherLower
                         c = new CardDeck();
                     }
                     Card c3 = c.nextCard();
+                    cardsDealt++;
                     System.out.println(c3);
                     if(c3.compareTo(c1) == 0 || c3.compareTo(c2) == 0)
                     {
