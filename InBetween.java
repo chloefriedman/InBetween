@@ -54,10 +54,11 @@ public class InBetween
                 }
             }
         }
-            
+        CardDeck c = new CardDeck();
+        c.shuffle();
+        int cardsDealt = 0;
         while(wantToPlay && bank >= 0)
         {
-            int cardsDealt = 0;
             worked = false;
             double bet = 0;
             while(!worked)
@@ -83,10 +84,9 @@ public class InBetween
                 bet = sc.nextDouble();
             }
 
-            CardDeck c = new CardDeck();
-            c.shuffle();
+            
             System.out.println("Card 1: ");
-            if(cardsDealt == 42)
+            if(cardsDealt >= 42)
             {
                 c = new CardDeck();
                 c.shuffle();
@@ -95,7 +95,7 @@ public class InBetween
             Card c1 = c.nextCard();
             cardsDealt++;
             System.out.println(c1);
-            if(cardsDealt == 10)
+            if(cardsDealt >=42 )
             {
                 c = new CardDeck();
                 c.shuffle();
@@ -175,6 +175,12 @@ public class InBetween
                     if(c.hasNextCard() == false)
                     {
                         c = new CardDeck();
+                    }
+                    if(cardsDealt >=42 )
+                    {
+                        c = new CardDeck();
+                        c.shuffle();
+                        cardsDealt = 0;
                     }
                     Card c3 = c.nextCard();
                     cardsDealt++;
